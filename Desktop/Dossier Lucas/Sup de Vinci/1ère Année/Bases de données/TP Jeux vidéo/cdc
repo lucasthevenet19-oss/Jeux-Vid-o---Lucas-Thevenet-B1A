@@ -4,3 +4,8 @@ Crée un système de combat tour par tour
 Continuer le combat jusqu'a temps que l'équipe selectionner soit vaincu 
 Crée un classement Top 3
 Tous dois être stocker sur une bases de données 
+
+Choses pour enregister ces modification sur Github : 
+git add .
+git commit -m "Description de ce que tu as changé"
+git push

@@ -9,28 +9,48 @@ def gestion_combat(equipe):
     vagues_reussies = 0
 
     while any(p.est_en_vie() for p in equipe):
-        # On choisit le monstre selon l'index (0 a 9)
         index = vagues_reussies % nb_monstres
         m = Monstre(tous_les_monstres[index])
         
         print(f"\n>>> MONDE {vagues_reussies + 1} : Territoire du {m.nom} <<<")
         time.sleep(1)
 
+        tour_perso = 0
         while m.est_en_vie() and any(p.est_en_vie() for p in equipe):
             print("\n--- Tour de l'equipe ---")
-            for p in equipe:
-                if p.est_en_vie() and m.est_en_vie():
-                    d = m.encaisser_degats(p.atk)
-                    print(f"{p.nom} frappe {m.nom} (-{d} PV)")
             
+            # Liste des personnages encore en vie
+            vivants = []
+            for p in equipe:
+                if p.est_en_vie():
+                    vivants.append(p)
+            
+            # Le personnage du tour actuel attaque
+            if len(vivants) > 0 and m.est_en_vie():
+                index_perso = tour_perso % len(vivants)
+                attaquant = vivants[index_perso]
+                d = m.encaisser_degats(attaquant.atk)
+                print(f"{attaquant.nom} frappe {m.nom} (-{d} PV)")
+                tour_perso += 1
+            
+            # Le monstre riposte sur un personnage au hasard
             if m.est_en_vie():
-                cible = random.choice([p for p in equipe if p.est_en_vie()])
+                vivants_pour_riposte = []
+                for p in equipe:
+                    if p.est_en_vie():
+                        vivants_pour_riposte.append(p)
+                index_cible = random.randint(0, len(vivants_pour_riposte) - 1)
+                cible = vivants_pour_riposte[index_cible]
                 d_m = cible.encaisser_degats(m.atk)
                 print(f"\nLe {m.nom} riposte sur {cible.nom} (-{d_m} PV)")
             
+            # Affichage de l'état de l'équipe
             print("\nEtat de l'equipe :")
             for p in equipe:
-                status = afficher_barre_vie(p) if p.est_en_vie() else "K.O."
+                if p.est_en_vie():
+                    status = afficher_barre_vie(p)
+                else:
+                    status = "K.O."
                 print(f"  {p.nom} : {status}")
             time.sleep(1.2)
 
