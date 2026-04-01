@@ -11,7 +11,13 @@ class Entite:
 
     def encaisser_degats(self, points_atk):
         degats = max(0, points_atk - self.defense)
+        # Toujours infliger au moins 1 point si l'attaque est positive,
+        # pour éviter les combats infinis contre des cibles très défensives.
+        if points_atk > 0 and degats == 0:
+            degats = 1
         self.pv -= degats
+        if self.pv < 0:
+            self.pv = 0
         return degats
 
 class Personnage(Entite):
