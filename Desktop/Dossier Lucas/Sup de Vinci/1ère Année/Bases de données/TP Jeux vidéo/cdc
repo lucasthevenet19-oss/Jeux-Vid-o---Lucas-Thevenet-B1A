@@ -7,5 +7,9 @@ Tous dois être stocker sur une bases de données
 
 Choses pour enregister ces modification sur Github : 
 git add .
-git commit -m "Description de ce que tu as changé"
 git push
+
+
+
+
+

@@ -11,21 +11,21 @@ def initialiser():
         # Liste des 10 heros (Stats augmentées pour tenir le choc)
         # Ratio : Somme Atk + Def + PV environ égale pour tous
         persos = [
-            {"nom": "Guerrier", "atk": 35, "def": 45, "pv": 100},
-            {"nom": "Mage", "atk": 65, "def": 20, "pv": 80},
-            {"nom": "Archer", "atk": 50, "def": 30, "pv": 70},
-            {"nom": "Voleur", "atk": 55, "def": 25, "pv": 80},
-            {"nom": "Paladin", "atk": 30, "def": 40, "pv": 120},
-            {"nom": "Sorcier", "atk": 70, "def": 15, "pv": 110},
-            {"nom": "Chevalier", "atk": 40, "def": 50, "pv": 90},
-            {"nom": "Moine", "atk": 45, "def": 40, "pv": 120},
-            {"nom": "Berserker", "atk": 55, "def": 20, "pv": 90},
-            {"nom": "Chasseur", "atk": 52, "def": 35, "pv": 145}
+            {"nom": "Guerrier", "attaque": 35, "defense": 45, "PV": 100},
+            {"nom": "Mage", "attaque": 65, "defense": 20, "PV": 80},
+            {"nom": "Archer", "attaque": 50, "defense": 30, "PV": 70},
+            {"nom": "Voleur", "attaque": 55, "defense": 25, "PV": 80},
+            {"nom": "Paladin", "attaque": 30, "defense": 40, "PV": 120},
+            {"nom": "Sorcier", "attaque": 70, "defense": 15, "PV": 110},
+            {"nom": "Chevalier", "attaque": 40, "defense": 50, "PV": 90},
+            {"nom": "Moine", "attaque": 45, "defense": 40, "PV": 120},
+            {"nom": "Berserker", "attaque": 55, "defense": 20, "PV": 90},
+            {"nom": "Chasseur", "attaque": 52, "defense": 35, "PV": 145}
         ]
         
         # Liste des 10 monstres (Difficulté progressive réelle)
         monstres = [
-            {"nom": "Gobelin", "atk": 40, "def": 30, "pv": 60},
+            {"nom": "Gobelin", "attaque": 40, "defense": 30, "PV": 60},
         ]
         
         db.personnages.insert_many(persos)
@@ -38,3 +38,4 @@ def initialiser():
 
 if __name__ == "__main__":
     initialiser()
+    

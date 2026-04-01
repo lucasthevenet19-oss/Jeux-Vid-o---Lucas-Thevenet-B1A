@@ -19,20 +19,20 @@ def gestion_combat(equipe):
         while m.est_en_vie() and any(p.est_en_vie() for p in equipe):
             print("\n--- Tour de l'equipe ---")
             
-            # Liste des personnages encore en vie
+            # Liste des personnages encore en vie avec leur PV 
             vivants = []
             for p in equipe:
                 if p.est_en_vie():
                     vivants.append(p)
             
-            # Le personnage du tour actuel attaque
+            # Le personnage chosit attaque le monstre
             if len(vivants) > 0 and m.est_en_vie():
                 index_perso = tour_perso % len(vivants)
                 attaquant = vivants[index_perso]
                 d = m.encaisser_degats(attaquant.atk)
                 print(f"{attaquant.nom} frappe {m.nom} (-{d} PV)")
                 tour_perso += 1
-            
+
             # Le monstre riposte sur un personnage au hasard
             if m.est_en_vie():
                 vivants_pour_riposte = []
