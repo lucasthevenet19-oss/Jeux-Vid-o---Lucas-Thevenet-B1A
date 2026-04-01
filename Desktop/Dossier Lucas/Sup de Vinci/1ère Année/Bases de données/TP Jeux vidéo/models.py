@@ -1,7 +1,7 @@
 class Entite:
-    def __init__(self, nom, atk, defense, pv):
+    def __init__(self, nom, attaque, defense, pv):
         self.nom = nom
-        self.atk = atk
+        self.atk = attaque
         self.defense = defense
         self.pv = pv
         self.pv_max = pv
