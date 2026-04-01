@@ -2,6 +2,7 @@ import random
 import time
 from models import Monstre
 from utils import charger_monstres, afficher_barre_vie
+# Gestion du combat tour par tour 
 def gestion_combat(equipe):
     tous_les_monstres = charger_monstres()
     nb_monstres = len(tous_les_monstres)

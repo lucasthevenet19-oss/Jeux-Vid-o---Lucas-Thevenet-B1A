@@ -8,7 +8,7 @@ def initialiser():
         db.personnages.drop()
         db.monstres.drop()
 
-        # Liste des 10 heros 
+        # Liste des heros 
         persos = [
             {"nom": "Guerrier", "attaque": 35, "defense": 45, "PV": 100},
             {"nom": "Mage", "attaque": 65, "defense": 20, "PV": 80},
@@ -22,7 +22,7 @@ def initialiser():
             {"nom": "Chasseur", "attaque": 52, "defense": 35, "PV": 145}
         ]
         
-        # Liste du monstres
+        # Liste des monstres
         monstres = [
             {"nom": "Gobelin", "attaque": 40, "defense": 30, "PV": 60},
         ]
