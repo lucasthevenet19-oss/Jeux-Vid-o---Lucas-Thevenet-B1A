@@ -23,7 +23,7 @@ def initialiser():
             {"nom": "Chasseur", "attaque": 52, "defense": 35, "PV": 145}
         ]
         
-        # Liste des 10 monstres (Difficulté progressive réelle)
+        # Liste des 1 monstres
         monstres = [
             {"nom": "Gobelin", "attaque": 40, "defense": 30, "PV": 60},
         ]
