@@ -9,11 +9,11 @@ class Entite:
     def est_en_vie(self):
         return self.pv > 0
 
-    def encaisser_degats(self, points_atk):
-        degats = max(0, points_atk - self.defense)
+    def encaisser_degats(self, points_attaque):
+        degats = max(0, points_attaque - self.defense)
         # Toujours infliger au moins 1 point si l'attaque est positive,
         # pour éviter les combats infinis contre des cibles très défensives.
-        if points_atk > 0 and degats == 0:
+        if points_attaque > 0 and degats == 0:
             degats = 1
         self.pv -= degats
         if self.pv < 0:
@@ -22,8 +22,8 @@ class Entite:
 
 class Personnage(Entite):
     def __init__(self, data):
-        super().__init__(data['nom'], data['atk'], data['def'], data['pv'])
+        super().__init__(data['nom'], data['attaque'], data['defense'], data['PV'])
 
 class Monstre(Entite):
     def __init__(self, data):
-        super().__init__(data['nom'], data['atk'], data['def'], data['pv'])
+        super().__init__(data['nom'], data['attaque'], data['defense'], data['PV'])
