@@ -8,8 +8,7 @@ def initialiser():
         db.personnages.drop()
         db.monstres.drop()
 
-        # Liste des 10 heros (Stats augmentées pour tenir le choc)
-        # Ratio : Somme Atk + Def + PV environ égale pour tous
+        # Liste des 10 heros 
         persos = [
             {"nom": "Guerrier", "attaque": 35, "defense": 45, "PV": 100},
             {"nom": "Mage", "attaque": 65, "defense": 20, "PV": 80},
